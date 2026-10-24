@@ -1,0 +1,14 @@
+{
+  "name": "crewfun",
+  "private": true,
+  "scripts": {
+    "server": "spacetime start",
+    "publish": "spacetime publish crewfun --server local --module-path spacetimedb -y",
+    "publish:clean": "spacetime publish crewfun --server local --module-path spacetimedb -y --delete-data=always",
+    "generate": "spacetime generate --lang typescript --out-dir web/src/module_bindings --module-path spacetimedb -y",
+    "web": "npm --prefix web run dev",
+    "test": "npm --prefix spacetimedb test && npm --prefix spacetimedb run typecheck && npm --prefix web run typecheck",
+    "smoke": "cd web && npx -y tsx scripts/smoke.ts",
+    "logs": "spacetime logs crewfun --server local"
+  }
+}
